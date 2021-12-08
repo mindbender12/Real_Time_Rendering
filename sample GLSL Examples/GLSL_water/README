@@ -1,0 +1,37 @@
+GLSL_water: A water demo with fresnel reflection/refraction and normalmap waves
+Copyright (C) 2009 Angelo "Encelo" Theodorou
+
+
+Info
+----
+While studying other techniques I put everything aside and start 
+working on this demo full-time for some days.
+full-time for some days.
+This is based on Riemer's XNA Water Technique 
+(http://www.riemers.net/eng/Tutorials/XNA/Csharp/Series4/The_water_technique.php),
+it's not optimized in any way and very lazy in scene handling but it works. :-)
+
+
+Controls
+--------
+
+Escape,q - to quit the program
+F1 - to switch between windowed mode/full screen
+1,2,3,4 - refraction pass/reflection pass/without water/with water
+SPACE - to toggle light movement
+R - to toggle camera rotation
+KP7,KP8,KP9 - to decrease/reset/increase water level
+KP4,KP5,KP6 - to decrease/reset/increase wave length
+KP1,KP2,KP3 - to decrease/reset/increase wave height
+KP0 - to reset everything
+
+
+Compiling
+---------
+In order to compile the program you have to use SCons.
+Should you have any problem with includes or libs, tweak it to suit your needs.
+
+
+Note
+----
+The brick room is rendered with parallax mapping.

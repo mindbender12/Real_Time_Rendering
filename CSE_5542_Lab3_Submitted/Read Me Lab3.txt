@@ -1,0 +1,99 @@
+**************************************************************************************
+CSE 5542 Lab3 Submission: 
+Submitted by: Soumya Dutta
+email: duttas@cse.ohio-state.edu
+date: 10/21/2012
+Title: Blobby man controlled by keyboard and GLSL Shader
+Objective: Learning GLSL, OpenGL 3.x+ advanced features, Per fragment lighting
+***************************************************************************************
+
+    Please compile the code and if you run, you will see a blobby man and the ply objets 
+that you have loaded. A fixed scene is constructed that has a small building. Four types of 
+primitive objects are implemented in this lab and the scene and the man is constructed using 
+different scaled version of those objects. All the objects are drawn here has been created only 
+once using VBO. Each object has its own VBO. Later they are just transformed and instanciated
+to get multiple copies. 
+
+   All the primitive objects are drawn at (0,0,0) initially. Though here they are initially
+have unit dimension, but as per the requirements of this lab, the functions used here can 
+also be used to create objects which has arbitrary length and height. The functions take 
+parameter for those. 
+
+
+   I am not submitting tha ply files. You can download them from the below link:
+http://www.cc.gatech.edu/projects/large_models/
+
+
+**********************
+Implementation notes: 
+**********************
+
+    The code has been written in Visual Studio 2010 and using openGL, GLUT,
+GLEW, GLM and GLSL. The primitive objects have been created manually using their geometric definitions
+and added with triangles. 
+
+   Currently you can input 6 ply files simultaneously. In order to load them, you have to input them from the
+command line argument of Visual Studio. If you want to load bunny and happy, then you add "bunny.ply happy.ply" 
+at the command line argument. Then compile and run the code.
+
+//////////////
+//  Note:-  //
+/////////////
+
+    I have tried almost all the ply files and all of them worked. Some of the files have very large dimensions 
+so it might be a good idea to not to use those. If you use those then you have to zoom out using mouse to see them.
+So, try bunny,happy,apple,dragon files. They have almost similar diemnsions. I am attaching a output screen, how it
+will look like if u load 3 plys at the same time. 
+
+
+GLSL Features implemented: 
+****************************
+   As required, Per fragment Phong Illumination model has been implemented in this code using GLSL. All the matrix manipulation 
+in this code has been done using GLM library and no openGL fixed functions are being used. I have also implemented several
+other shaders that Prof. Shen discussed in class. Four different shader models have been added to the code (press 's' to switch 
+between different shaders). 
+
+  1. Per Fragment Phong Illuminaton (Lighting in frag shader)
+  2. Per Vertex Phong Illumination (lighting in vert shader)
+  3. Toon Shading / Cel Shading (Lighting in frag shader, this one has one light)
+  4. Flat shading  (Lighting in frag shader)
+  
+  
+  There are low lights in the model. You can turn them on/off by pressing
+  'o' for first light and 'p' for second light. If both lights are turned off then
+  user can only see the ambient color. 
+
+
+   The blobby man visible in the scene can be controlled using several keys, as per the requirements.
+You can control the blobby man using following keys:
+
+    f: move the man forward.
+
+    b: move the man backward.
+
+    t: turn the man counter clockwise by 15 degrees
+
+    T: turn the man clock wise by 15 degree
+
+    l: lift the left arm
+
+    r: lift the right arm   
+
+    h: rotate the head clockwise 15 degree (new feature added)
+   
+    H: rotate the head anti-clockwise 15 degree (new feature added)
+
+
+********************************************************************************
+Other special Key features: 
+********************************************************************************
+
+  1. s = switch between different shaders. Check the cmd window to know which shader is currently being shown.
+  2. w = swtich between wireframe / solid lighting mode
+  3. c = change ply objets colors randomly
+  4. o = turn off/on first light
+  5. p = turn off/on second light
+  6. Press up/down/left/right arrow keys to look around by moving the camera direction.
+  7. Changing the view direction and other flexibility: Using mouse left button you can rotate the scene 
+    and while pressing right mouse button, you can drag the mouse to zoom in or zoom out.
+

@@ -1,0 +1,50 @@
+﻿Build started 10/29/2012 4:50:22 PM.
+     1>Project "C:\Users\soumya\Desktop\Render to texture\Project.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\Debug\Project.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\openGL\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\users\soumya\desktop\render to texture\main.cpp(55): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\soumya\desktop\render to texture\main.cpp(56): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\soumya\desktop\render to texture\main.cpp(328): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\soumya\desktop\render to texture\main.cpp(339): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\soumya\desktop\render to texture\main.cpp(345): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug/Project.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\openGL\lib freeglut.lib glew32.lib "glui32-debug.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\Debug\Project.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:".\Debug/Project.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\Project.lib" /MACHINE:X86 .\Debug\Project.exe.embed.manifest.res
+         .\Debug/FPS_COUNTER.obj
+         .\Debug/IMAGE.obj
+         .\Debug/INTERACTOR.obj
+         .\Debug/LOG.obj
+         .\Debug/Main.obj
+         .\Debug/PBUFFER.obj
+         .\Debug/TIMER.obj
+         .\Debug/WINDOW.obj
+         .\Debug/COLOR.obj
+         .\Debug/MATRIX4X4.obj
+         .\Debug/PLANE.obj
+         .\Debug/VECTOR2D.obj
+         .\Debug/VECTOR3D.obj
+         .\Debug/VECTOR4D.obj
+         .\Debug/EXT_texture_filter_anisotropic_extension.obj
+         .\Debug/SGIS_generate_mipmap_extension.obj
+         .\Debug/WGL_ARB_extensions_string_extension.obj
+         .\Debug/WGL_ARB_pbuffer_extension.obj
+         .\Debug/WGL_ARB_pixel_format_extension.obj
+         .\Debug/WGL_ARB_render_texture_extension.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:".\Debug\Project.exe.embed.manifest" /manifest .\Debug\Project.exe.intermediate.manifest
+         All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         Project.vcxproj -> C:\Users\soumya\Desktop\Render to texture\.\Debug\Project.exe
+       FinalizeBuildStatus:
+         Deleting file ".\Debug\Project.unsuccessfulbuild".
+         Touching ".\Debug\Project.lastbuildstate".
+     1>Done Building Project "C:\Users\soumya\Desktop\Render to texture\Project.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.10

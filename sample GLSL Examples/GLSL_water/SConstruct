@@ -1,0 +1,11 @@
+#VariantDir('build/src', 'src', duplicate=0) # Needs SCons 1.0
+#VariantDir('build/tests', 'tests', duplicate=0) # Needs SCons 1.0
+
+env = Environment()
+env.Append(LIBS=['SDL', 'SDL_image', 'SDL_ttf', 'GL', 'GLU'])
+env.Append(CXXFLAGS = ['-DGL_GLEXT_PROTOTYPES'])
+env.Append(CXXFLAGS = ['-Wall', '-g'])
+env.Replace(CPPPATH='#/src') # INCDIR
+
+objects = SConscript('src/SConscript', exports='env', build_dir='build/src', duplicate=0)
+env.Program('#/glsl_water', ['glsl_water.cpp'] + objects)

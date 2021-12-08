@@ -1,0 +1,97 @@
+**************************************************************************************
+CSE 5542 Lab4 Submission: 
+Submitted by: Soumya Dutta
+email: duttas@cse.ohio-state.edu
+date: 11/05/2012
+Title: Regular texture map on cube, sphere and Cube environment map
+Objective: Learning GLSL Texture map, OpenGL 3.x+ advanced features, Per fragment lighting
+***************************************************************************************
+
+   I have zipped the texture files used here. Please unzip them before running the code.  
+   I am not submitting tha ply files. You can download them from the below link:
+http://www.cc.gatech.edu/projects/large_models/
+
+In order to run the code you must at least load one ply file. 
+
+
+**********************
+Implementation notes: 
+**********************
+
+    The code has been written in Visual Studio 2010 and using openGL, GLUT,
+GLEW, GLM and GLSL. The primitive objects have been created manually using their geometric definitions
+and added with triangles. 
+
+   Currently you can input 6 ply files simultaneously. In order to load them, you have to input them from the
+command line argument of Visual Studio. If you want to load bunny and happy, then you add "bunny.ply happy.ply" 
+at the command line argument. Then compile and run the code.
+
+//////////////
+//  Note:-  //
+/////////////
+
+  1. All the texture images used in this code has fixed dimension 512x512. I have used PPM files. I am attaching the 
+image files for your convenience. The texture files should have the exact same name. So, if you want to load different
+texture files they have to be renamed exactly the same as attached here and should have 512x512 dimension.
+
+File names for Cube map: 
+
+positive_x.ppm
+negative_x.ppm
+positive_y.ppm
+negative_y.ppm
+positive_z.ppm
+negative_z.ppm
+
+Other texture files used:
+
+marbleTexture.ppm
+piller.ppm
+tiles.ppm
+
+  2.I have tried almost all the ply files and all of them worked. Some of the files have very large dimensions 
+so it might be a good idea to not to use those. If you use those then you have to zoom out using mouse to see them.
+So, try bunny,happy,apple,dragon files. They have almost similar diemnsions. I am attaching a output screen, how it
+will look like if u load apple.ply. 
+
+
+GLSL Features implemented: 
+****************************
+   As required, Per fragment Phong Illumination model has been implemented in this code using GLSL with regular texture and also cube env. map.
+All the matrix manipulation in this code has been done using GLM library and no openGL fixed functions are being used. This labb also 
+implements Cube environment mapping.
+
+***************press 's' to switch between different shaders************************
+
+   
+    The blobby man visible in the scene can be controlled using several keys, as per the requirements.
+You can control the blobby man using following keys:
+
+    f: move the man forward.
+
+    b: move the man backward.
+
+    t: turn the man counter clockwise by 15 degrees
+
+    T: turn the man clock wise by 15 degree
+
+    l: lift the left arm
+
+    r: lift the right arm   
+
+    h: rotate the head clockwise 15 degree (new feature added)
+   
+    H: rotate the head anti-clockwise 15 degree (new feature added)
+
+
+********************************************************************************
+Other special Key features: 
+********************************************************************************
+
+  1. s = switch between different shaders. Check the cmd window to know which shader is currently being shown.
+  2. w = swtich between wireframe / solid lighting mode
+  3. c = change ply objets colors randomly
+  4. Press up/down/left/right arrow keys to look around by moving the camera direction.
+  5. Changing the view direction and other flexibility: Using mouse left button you can rotate the scene 
+    and while pressing right mouse button, you can drag the mouse to zoom in or zoom out.
+

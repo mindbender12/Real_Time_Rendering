@@ -1,0 +1,67 @@
+**************************************************************************************
+CSE 5542 Lab2 Submission: 
+Submitted by: Soumya Dutta
+email: duttas@cse.ohio-state.edu
+date: 10/01/2012
+Title: Blobby man controlled by keyboard
+Objective: Learning VBO and hierarchical transformation
+***************************************************************************************
+
+
+    Please compile the code and if you run, you will see a blobby man standing at origin.
+A fixed scene is constructed that has a small hut and two trees. Four types of primitive
+objects are implemented in this lab and the scene and the man is constructed using different
+scaled version of those objects. All the objects are drawn here has been created only once 
+using VBO. Each object has its own VBO. Later they are just transformed and instanciated
+to get multiple copies. 
+
+   All the primitive objects are drawn at (0,0,0) initially. Though here they are initially
+have unit dimension, but as per the requirements of this lab, the functions used here can 
+also be used to create objects which has arbitrary length and height. The functions take 
+parameter for those. 
+
+
+**********************
+Implementation notes: 
+**********************
+
+
+    The whole code has been written in Visual Studio 2010 and using openGL, GLUT,
+GLEW and GLM. The primitive objects have been created manually using their geometric definitions
+and added with triangles. 
+
+
+The blobby man visible in the scene can be controlled using several keys, as per the requirements.
+You can control the blobby man using following keys:
+
+    f: move the man forward.
+
+    b: move the man backward.
+
+    t: turn the man counter clockwise by 15 degrees
+
+    T: turn the man clock wise by 15 degree
+
+    l: lift the left arm
+
+    r: lift the right arm   
+
+    h: rotate the head clockwise 15 degree (new feature added)
+   
+    H: rotate the head anti-clockwise 15 degree (new feature added)
+
+
+
+Extra features I added to make the scene and interaction more flexible and nice: 
+**********************************************************************************
+
+
+1.  Smooth shading and proper lighting has been added to it as an extra addition on top
+    of the original requirements of the lab.
+
+
+2.  Changing the view direction and other flexibility: Using mouse left button you can rotate the scene 
+    and while pressing right mouse button, you can drag the mouse to zoom in or zoom out.  
+
+
+3.  If you change the screen size, the objects will maintain their proper aspect ratio too. 

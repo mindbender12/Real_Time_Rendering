@@ -1,0 +1,50 @@
+GL_shadow: an implementation of the stencil shadow volume technique
+Copyright (C) 2005 Angelo "Encelo" Theodorou
+
+Info
+----
+Welcome to a little more complex demo, which required studying Blender Python OBJ importer, 
+NeHe's lesson 27 and some other docs about shadow volume technique.
+Actually the demo is a merge of an OBJ loader and some code for real-time shadow generation using 
+the depth pass test (zpass).
+If you are curious about testing the program with something heavier than a cube make it load 
+suzanne.obj instead of cube.obj and you will admire the shadow projected by Suzanne, Blender's mascotte. :)
+(On my card it scores near 1/5th of cube performance)
+
+Compiling
+---------
+In order to compile use the included Makefile.
+Should you have any problem with includes or libs, tweak it to suit your needs.
+
+TODO and shortcomings of the current version
+--------------------------------------------
+- It would really like to actually implement Carmack's Reverse and volume capping, maybe in the future.
+- Calculating the inverse matrix would make calculation of light position relative to object a lot easier.
+- Shadow volume should be clipped to the view volume.
+- Lights could be represented by a transparent textured quad or an object.
+- Take in consideration object material properties.
+- Update OBJ loader to the new (and I think more correct) Blender 2.40 importer script.
+
+- Silhouette edge calculation is done twice even if it remains the same for both calls of ShadowVolume() inside 
+CastShadow().
+- I think there's an issue with normals and back facing polygons because, as you may easily notice, when a light 
+is near a wall this become darker instead of brighter! :)
+
+Notes
+-----
+- test_obj is a program made for testing OBJ loader routines, invoke it with an OBJ file as parameter.
+
+- cube.mtl is filled with fake materials to show that the loader is actually capable of loading 
+parameters from the right one.
+
+- In this demo FrameTiming() and perspectiveGL() were moved in extra.c, leaving to main.c only 
+the main() function.
+
+- I have added code for window resizing based on SDL events and OpenGL frustum and viewport recalibration.
+
+- The prgram stops when the window loses input focus or is iconified.
+  Strangely SDL_APPINPUTFOCUS event is thrown even when the application regain only mouse focus.
+
+- Projecting the shadow volume to infinity is achieved setting the w component of the 
+  projected points of the volume to 0.
+  Take a look to shadow.c comments.

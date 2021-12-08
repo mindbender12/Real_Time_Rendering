@@ -1,0 +1,35 @@
+GL3_parallax_DoF: Parallax mapping and DoF effect with a GL3 compliant class library
+Copyright (C) 2008 Angelo "Encelo" Theodorou
+
+
+Info
+----
+This demo is the first one using a C++ class library, it shows parallax mapping and depth of field together.
+The classes are very close to be GL3 (and ES2) compliant, this actually means that I don't use the fixed pipeline at all: 
+I handle matrices by myself and pass every information to shaders directly, with no use of OpenGL built-in state variables.
+Stanford PLY mesh loading comes as a little bonus. ;-)
+
+
+Controls
+--------
+Escape,q - to quit the program
+F1 - to switch between windowed mode/full screen
+space - to start/stop cubes movement along the z-axis
+r - to start/stop MrFixit's head rotation
+l - to start/stop light movement along the x-axis
+p - to print current DoF parameter values
+KP7,KP8,KP9 - to decrease/reset/increase focal distance
+KP4,KP5,KP6 - to decrease/reset/increase focal range
+KP0 - to reset everything
+1,2,3,4,5 - to put the nth cube in focus
+
+
+Compiling
+---------
+In order to compile the program you have to use SCons.
+Should you have any problem with includes or libs, tweak it to suit your needs.
+
+
+Notes
+-----
+MrFixit model and maps are courtesy of John Siar (ironantknight@gmail.com), who allowed their distribution in this archive.

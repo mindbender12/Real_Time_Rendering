@@ -1,0 +1,8 @@
+env = Environment()
+env.Append(LIBS=['SDL', 'SDL_image', 'GL'])
+env.Append(CXXFLAGS = ['-DGL_GLEXT_PROTOTYPES'])
+env.Replace(CPPPATH='src')
+#env.Append(CXXFLAGS = ['-Wall', '-g'])
+
+objects = SConscript('src/SConscript', exports='env', build_dir='build', duplicate=0)
+env.Program('#/gl3_parallax_dof', ['gl3_parallax_dof.cpp'] + objects)

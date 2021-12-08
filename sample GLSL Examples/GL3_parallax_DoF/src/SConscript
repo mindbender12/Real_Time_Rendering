@@ -1,0 +1,24 @@
+Import('env')
+
+classes = Split("""
+Matrix.cpp
+ViewMatrix.cpp
+ProjMatrix.cpp
+Shader.cpp
+ShaderProgram.cpp
+Timer.cpp
+VertexBuffer.cpp
+Mesh.cpp
+Light.cpp
+Texture.cpp
+Vector.cpp
+FrameTimer.cpp
+FrameBuffer.cpp
+""")
+
+objects = []
+for source in classes:
+	obj = env.Object(source)
+	objects.append(obj)
+
+Return('objects')

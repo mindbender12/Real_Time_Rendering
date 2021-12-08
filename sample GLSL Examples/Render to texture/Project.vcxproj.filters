@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9402e19b-054a-42c6-a894-1b6ecb2a5324}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f88d9777-dde5-425c-a394-0be5dbe99c1f}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Maths">
+      <UniqueIdentifier>{13036955-f630-4226-a296-b4f931ba9283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maths\Maths Source">
+      <UniqueIdentifier>{7ded5245-0aee-49da-87a7-9d5a38c472cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maths\Maths Headers">
+      <UniqueIdentifier>{287ec352-0d21-4ba0-9d13-209cb868c3d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extensions">
+      <UniqueIdentifier>{6338a663-76cf-4b5e-bf7b-90788060bc90}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FPS_COUNTER.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IMAGE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="INTERACTOR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LOG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PBUFFER.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TIMER.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WINDOW.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\COLOR.cpp">
+      <Filter>Maths\Maths Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\MATRIX4X4.cpp">
+      <Filter>Maths\Maths Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\PLANE.cpp">
+      <Filter>Maths\Maths Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR2D.cpp">
+      <Filter>Maths\Maths Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR3D.cpp">
+      <Filter>Maths\Maths Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR4D.cpp">
+      <Filter>Maths\Maths Source</Filter>
+    </ClCompile>
+    <ClCompile Include="extensions\EXT_texture_filter_anisotropic_extension.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="extensions\SGIS_generate_mipmap_extension.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="extensions\WGL_ARB_extensions_string_extension.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="extensions\WGL_ARB_pbuffer_extension.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="extensions\WGL_ARB_pixel_format_extension.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="extensions\WGL_ARB_render_texture_extension.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FPS_COUNTER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IMAGE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="INTERACTOR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LOG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PBUFFER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TIMER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WINDOW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Maths.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\COLOR.h">
+      <Filter>Maths\Maths Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\MATRIX4X4.h">
+      <Filter>Maths\Maths Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\PLANE.h">
+      <Filter>Maths\Maths Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR2D.h">
+      <Filter>Maths\Maths Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR3D.h">
+      <Filter>Maths\Maths Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR4D.h">
+      <Filter>Maths\Maths Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="extensions\EXT_texture_filter_anisotropic_extension.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="extensions\SGIS_generate_mipmap_extension.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="extensions\WGL_ARB_extensions_string_extension.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="extensions\WGL_ARB_pbuffer_extension.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="extensions\WGL_ARB_pixel_format_extension.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="extensions\WGL_ARB_render_texture_extension.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

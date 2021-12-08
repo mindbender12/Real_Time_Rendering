@@ -1,0 +1,35 @@
+Controller.o: Controller.cpp Controller.h GLView.h Vector.h Quaternion.h \
+ MeshDrawable.h Drawable.h Utilities.h FocusedCamera.h Camera.h Terrain.h \
+ ParentDrawable.h Texture.h TestDrawable.h Light.h Font.h GUIDrawable.h \
+ TextDrawable.h Shader.h
+Drawable.o: Drawable.cpp Drawable.h Vector.h Quaternion.h
+FocusedCamera.o: FocusedCamera.cpp FocusedCamera.h Camera.h Vector.h
+Font.o: Font.cpp Font.h Utilities.h
+GLView.o: GLView.cpp GLView.h Vector.h Quaternion.h PositionedCamera.h \
+ Camera.h ParentDrawable.h Drawable.h GUIDrawable.h Light.h Utilities.h \
+ Mesh.h MeshDrawable.h Font.h
+GUIDrawable.o: GUIDrawable.cpp GUIDrawable.h Drawable.h Vector.h \
+ Quaternion.h ParentDrawable.h
+Light.o: Light.cpp Light.h Vector.h Utilities.h
+main.o: main.cpp GLView.h Controller.h
+Mesh.o: Mesh.cpp Mesh.h Utilities.h Vector.h
+MeshDrawable.o: MeshDrawable.cpp MeshDrawable.h Drawable.h Vector.h \
+ Quaternion.h Controller.h Mesh.h Texture.h Shader.h Utilities.h
+ParentDrawable.o: ParentDrawable.cpp ParentDrawable.h Drawable.h Vector.h \
+ Quaternion.h
+PositionedCamera.o: PositionedCamera.cpp PositionedCamera.h Vector.h \
+ Quaternion.h Camera.h
+Quaternion.o: Quaternion.cpp Quaternion.h Vector.h
+Shader.o: Shader.cpp Shader.h Utilities.h
+Shapes.o: Shapes.cpp Shapes.h Mesh.h Vector.h Utilities.h
+Skybox.o: Skybox.cpp Skybox.h Drawable.h Vector.h Quaternion.h Texture.h \
+ GLView.h Camera.h
+Terrain.o: Terrain.cpp Terrain.h Mesh.h Vector.h Utilities.h
+test.o: test.cpp
+TestDrawable.o: TestDrawable.cpp TestDrawable.h Drawable.h Vector.h \
+ Quaternion.h
+TextDrawable.o: TextDrawable.cpp TextDrawable.h Drawable.h Vector.h \
+ Quaternion.h Utilities.h Font.h
+Texture.o: Texture.cpp Texture.h Utilities.h
+Utilities.o: Utilities.cpp Utilities.h
+Vector.o: Vector.cpp Vector.h
