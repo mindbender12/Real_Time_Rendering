@@ -7,6 +7,9 @@
 //          GLSL Regular Texture map and Cube Environment Mapping    //
 ///////////////////////////////////////////////////////////////////////
 
+//Compile: g++ main_file.cpp -o out -w -I/home/soumya/glm -lGL -lGLU -lGLEW -lglut
+//Run: optirun ./out ../ply_files/Motorbike.ply ../ply_files/Vishnu.ply
+
 #include <iostream>
 #include <cmath>
 #include <ctime>
@@ -147,8 +150,10 @@ int needTexture=1;
 int needtex =0;
 GLubyte *base,*back,*marbleTexture,*piller,*tiles,*leftIm,*rightIm,*roof;
 GLubyte *cubeMapImages[6];
-float Xcam=0; float Ycam=150.0; float Zcam=50;
-vec3 eyePos =vec3(0.0,300.0,400.0);
+float Xcam=0; float Ycam=90; float Zcam=0;
+//float Xcam=0; float Ycam=150.0; float Zcam=50;
+//vec3 eyePos =vec3(0.0,300.0,400.0);
+vec3 eyePos =vec3(0.0,190.0,250.0);
 int isCubeMap=0;
 
 GLubyte* read_Image(char* filename) 
@@ -1503,7 +1508,7 @@ void InitPly(char** argv)
 	plyObjRotateAxis[1] = vec3(1,0,0);
 
 	plyObjRotate[0] = 45.0f;
-	plyObjRotate[1] = 80.0f;
+	plyObjRotate[1] = -90.0f;
 
 
 	for(int p=0;p<totObj-4;p++)
@@ -1546,7 +1551,7 @@ void InitPly(char** argv)
 					x = y = z = 0;
 				}
 				else {
-					recip = -1 / sqrt (len);
+					recip = -1 / std::sqrt (len);
 
 					x *= recip;
 					y *= recip;
@@ -1575,7 +1580,7 @@ void InitPly(char** argv)
 				}
 				else 
 				{      
-					recip = 1 / sqrt (len);
+					recip = 1 / std::sqrt (len);
 					vertices[p][i]->nx *= recip;
 					vertices[p][i]->ny *= recip;
 					vertices[p][i]->nz *= recip;
@@ -1742,9 +1747,9 @@ void drawStaticScene()
 
 	///////////////Draw base cube//////////////////	
 	modelStack.push(model);	
-	//model=translate(model,vec3(0,0,0));
-	model=rotate(model,-90.0f,vec3(1,0,0)); 
-	model=scale(model,vec3(300,300,2)); 
+	model=translate(model,vec3(0,-4,0));
+	model=rotate(model,-90.0f,vec3(1,0,0));
+	model=scale(model,vec3(300,300,2));    
 	normalMatrix=transpose(inverse(view*model));
 	diffuseTerm = vec4(1,0.87,0.67,1);
 	glUniformMatrix4fv(m2, 1, GL_FALSE, &model[0][0]);
@@ -1758,9 +1763,9 @@ void drawStaticScene()
 	glUniform1i(texLoc,tid[1]);	
 	///////////////Draw Back cube//////////////////////
 	modelStack.push(model);	
-	model=translate(model,vec3(0,0,-150));
-	//model=rotate(model,180.0f,vec3(1,0,0));
-	//model=scale(model,vec3(300,300,2));  
+	model=translate(model,vec3(0,145,-150));
+	model=scale(model,vec3(300,300,2));  
+	model=rotate(model,-180.0f,vec3(0,0,1));
 	normalMatrix=transpose(inverse(view*model));
 	diffuseTerm = vec4(1,0.87,0.67,1);
 	glUniformMatrix4fv(m2, 1, GL_FALSE, &model[0][0]);
@@ -1794,7 +1799,7 @@ void drawStaticScene()
 	model=translate(model,vec3(150,145,0));
 	model=rotate(model,180.0f,vec3(1,0,0));
 	model=rotate(model,-90.0f,vec3(0,1,0));
-	//model=scale(model,vec3(300,300,2));  	
+	model=scale(model,vec3(300,300,2));  	
 	normalMatrix=transpose(inverse(view*model));
 	diffuseTerm = vec4(1,0.87,0.67,1);
 	glUniformMatrix4fv(m2, 1, GL_FALSE, &model[0][0]);
@@ -1810,7 +1815,7 @@ void drawStaticScene()
 	modelStack.push(model);	
 	model=translate(model,vec3(0,295,0));
 	model=rotate(model,90.0f,vec3(1,0,0));
-	//model=scale(model,vec3(300,300,2));    
+	model=scale(model,vec3(300,300,2));    
 	normalMatrix=transpose(inverse(view*model));
 	diffuseTerm = vec4(1,0.87,0.67,1);
 	glUniformMatrix4fv(m2, 1, GL_FALSE, &model[0][0]);
@@ -2139,7 +2144,8 @@ void display()
 
 	model = mat4(1.0f);	
 	mat4 projection = perspective(70.0f,1.0f,0.1f,1000.0f); 
-	view = lookAt(eyePos,vec3(Xcam,Ycam,Zcam),vec3(0.0,1.0,0.0)); 
+	view = lookAt(eyePos,vec3(Xcam,Ycam,Zcam),vec3(0.0,1.0,0.0));
+
 
 	model =rotate(model, x_angle, vec3(0.0f, 1.0f, 0.0f));   
 	model = rotate(model, y_angle, vec3(1.0f, 0.0f, 0.0f));   

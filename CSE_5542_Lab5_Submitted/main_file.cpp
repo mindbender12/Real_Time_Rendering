@@ -20,12 +20,14 @@
 #include <glm/gtx/transform2.hpp>
 #include <stack>
 #include <cstdlib>
+#include "shaderSetup.cpp"
 #include "ply.h"
+#include "ply.cpp"
 
 using namespace glm;
 using namespace std;
 
-const float M_PI=3.14f;
+const float PI=3.14f;
 
 //Ply stuff
 typedef struct VertexPly 
@@ -702,14 +704,14 @@ struct Robot
 	void moveForward(float dist)
 	{
 		vec3 original_forward = vec3(0,0,1);
-		vec3 forward = vec3(sin(M_PI*angle/180), 0, cos(M_PI*angle/180));	
+		vec3 forward = vec3(sin(PI*angle/180), 0, cos(PI*angle/180));	
 		pos += forward * dist;			
 	}
 
 	void moveBackward(float dist)
 	{
 		vec3 original_forward = vec3(0,0,1);
-		vec3 forward = vec3(sin(M_PI*angle/180), 0, cos(M_PI*angle/180));
+		vec3 forward = vec3(sin(PI*angle/180), 0, cos(PI*angle/180));
 		pos -= forward * dist;			
 	}
 
@@ -1220,7 +1222,7 @@ void InitCylinder(int nslices, int nstacks,int baseRadius, int topradius,int hei
 	int nvertices = nslices * nstacks; 
 	cyverts = new Vertex[nvertices]; 	
 
-	float Dangle = 2*M_PI/(float)(nslices-1); 
+	float Dangle = 2*PI/(float)(nslices-1); 
 
 	for (int j =0; j<nstacks; j++)
 	{
@@ -1250,7 +1252,7 @@ void InitCylinder(int nslices, int nstacks,int baseRadius, int topradius,int hei
 			cyverts[idx].color[2] = 0.5; 
 			cyverts[idx].color[3] = 1.0;
 
-			cyverts[idx].texCoord[0]= acos(cyverts[idx].location[0])/2*M_PI/2;
+			cyverts[idx].texCoord[0]= acos(cyverts[idx].location[0])/2*PI/2;
 			cyverts[idx].texCoord[1]= cyverts[idx].location[2];
 		}
 	}
@@ -1282,7 +1284,7 @@ void InitCone(int nslices, int nstacks, int baseRadius, int height)
 	int top_radius=0;
 	int base_radius=baseRadius;
 
-	float Dangle = 2*M_PI/(float)(nslices-1); 
+	float Dangle = 2*PI/(float)(nslices-1); 
 
 	for (int j = 0; j < nstacks; j++)
 	{
@@ -1307,7 +1309,7 @@ void InitCone(int nslices, int nstacks, int baseRadius, int height)
 			cnverts[idx].color[3] = 1.0;
 
 
-			cnverts[idx].texCoord[0]= acos(cnverts[idx].location[0])/2*M_PI;
+			cnverts[idx].texCoord[0]= acos(cnverts[idx].location[0])/2*PI;
 			cnverts[idx].texCoord[1]=cnverts[idx].location[2];
 
 		}
@@ -1359,18 +1361,18 @@ void InitSphere(int nslices,int nstacks,int radius)
 		spverts[i].color[2] = 0;
 		spverts[i].color[3] = 1;
 
-		spverts[i].texCoord[0]= atan2(spverts[i].normal[0],spverts[i].normal[2]) / (2. * M_PI) + 0.5;
-		spverts[i].texCoord[1]= asin(spverts[i].normal[1]) / M_PI + .5;
+		spverts[i].texCoord[0]= atan2(spverts[i].normal[0],spverts[i].normal[2]) / (2. * PI) + 0.5;
+		spverts[i].texCoord[1]= asin(spverts[i].normal[1]) / PI + .5;
 	}
 
 	int n=nslices;
 	for (j=1;j<nstacks-1;j++) 
 	{
-		theta1 = j * 2*M_PI /nslices - M_PI/2; 
+		theta1 = j * 2*PI /nslices - PI/2; 
 
 		for (i=0;i<nslices;i++) 
 		{
-			theta2 = i *2*M_PI / nslices;
+			theta2 = i *2*PI / nslices;
 
 			spverts[n].location[0] = radius*cos(theta1) * cos(theta2);
 			spverts[n].location[1] = radius*sin(theta1);
@@ -1387,8 +1389,8 @@ void InitSphere(int nslices,int nstacks,int radius)
 			spverts[n].color[2] = 0;
 			spverts[n].color[3] = 1; 			
 
-			spverts[n].texCoord[0]= atan2(spverts[n].normal[0],spverts[n].normal[2]) / (2. * M_PI) + 0.5;
-			spverts[n].texCoord[1]= asin(spverts[n].normal[1]) / M_PI + 0.5;	
+			spverts[n].texCoord[0]= atan2(spverts[n].normal[0],spverts[n].normal[2]) / (2. * PI) + 0.5;
+			spverts[n].texCoord[1]= asin(spverts[n].normal[1]) / PI + 0.5;	
 
 			n++;			
 		}		
@@ -1411,8 +1413,8 @@ void InitSphere(int nslices,int nstacks,int radius)
 		spverts[n].color[2] = 0;
 		spverts[n].color[3] = 1; 
 
-		spverts[n].texCoord[0]= atan2(spverts[n].normal[0],spverts[n].normal[2]) / (2. * M_PI) + 0.5;
-		spverts[n].texCoord[1]= asin(spverts[n].normal[1]) / M_PI + .5;
+		spverts[n].texCoord[0]= atan2(spverts[n].normal[0],spverts[n].normal[2]) / (2. * PI) + 0.5;
+		spverts[n].texCoord[1]= asin(spverts[n].normal[1]) / PI + .5;
 
 		n++;
 	}
@@ -1666,7 +1668,7 @@ void InitPly(char** argv)
 					x = y = z = 0;
 				}
 				else {
-					recip = -1 / sqrt (len);
+					recip = -1 / std::sqrt (len);
 
 					x *= recip;
 					y *= recip;
@@ -1695,7 +1697,7 @@ void InitPly(char** argv)
 				}
 				else 
 				{      
-					recip = 1 / sqrt (len);
+					recip = 1 / std::sqrt (len);
 					vertices[p][i]->nx *= recip;
 					vertices[p][i]->ny *= recip;
 					vertices[p][i]->nz *= recip;
@@ -2793,28 +2795,28 @@ int main(int argc, char** argv)
 		store_ply(input[i],&vertices[i], &faces[i],&vertexcount[i], &facecount[i],&vertexnormals[i], &facenormals[i], &has_normal[i]);
 		// close the file
 		close_ply(input[i]);
-		fclose(fp1);
+		//fclose(fp1);
 	}
 
 	//reads the input texture ppm image and creats texture data
 
-	base = read_Image("negative_y.ppm");
-	back = read_Image("negative_z.ppm");
-	leftIm = read_Image("negative_x.ppm");
-	rightIm = read_Image("positive_x.ppm");
-	roof = read_Image("positive_y.ppm");
-	marbleTexture = read_Image("marbleTexture.ppm");	
-	tiles = read_Image("tiles.ppm");
-	piller = read_Image("piller.ppm");	
-	bumpNormal = read_Image("bumpNormal.ppm");
+	base = read_Image("./Texture_files/negative_y.ppm");
+	back = read_Image("./Texture_files/negative_z.ppm");
+	leftIm = read_Image("./Texture_files/negative_x.ppm");
+	rightIm = read_Image("./Texture_files/positive_x.ppm");
+	roof = read_Image("./Texture_files/positive_y.ppm");
+	marbleTexture = read_Image("./Texture_files/marbleTexture.ppm");	
+	tiles = read_Image("./Texture_files/tiles.ppm");
+	piller = read_Image("./Texture_files/piller.ppm");	
+	bumpNormal = read_Image("./Texture_files/bumpNormal.ppm");
 
 
-	cubeMapImages[0] = read_Image("positive_x.ppm");
-	cubeMapImages[1] = read_Image("negative_x.ppm");
-	cubeMapImages[2] = read_Image("positive_y.ppm");
-	cubeMapImages[3] = read_Image("negative_y.ppm");
-	cubeMapImages[4] = read_Image("positive_z.ppm");
-	cubeMapImages[5] = read_Image("negative_z.ppm");
+	cubeMapImages[0] = read_Image("./Texture_files/positive_x.ppm");
+	cubeMapImages[1] = read_Image("./Texture_files/negative_x.ppm");
+	cubeMapImages[2] = read_Image("./Texture_files/positive_y.ppm");
+	cubeMapImages[3] = read_Image("./Texture_files/negative_y.ppm");
+	cubeMapImages[4] = read_Image("./Texture_files/positive_z.ppm");
+	cubeMapImages[5] = read_Image("./Texture_files/negative_z.ppm");
 
 	glutInit(&argc, argv); 
 	glutInitDisplayMode(GLUT_RGB|GLUT_DOUBLE|GLUT_DEPTH); 

@@ -1294,7 +1294,7 @@ void InitPly(char** argv)
 	plyObjRotateAxis[1] = vec3(1,0,0);
 
 	plyObjRotate[0] = 45.0f;
-	plyObjRotate[1] = 80.0f;
+	plyObjRotate[1] = -90.0f;
 
 	for(int p=0;p<totObj-4;p++)
 	{
@@ -1336,7 +1336,7 @@ void InitPly(char** argv)
 					x = y = z = 0;
 				}
 				else {
-					recip = -1 / sqrt (len);
+					recip = -1 / std::sqrt (len);
 
 					x *= recip;
 					y *= recip;
@@ -1365,7 +1365,7 @@ void InitPly(char** argv)
 				}
 				else 
 				{      
-					recip = 1 / sqrt (len);
+					recip = 1 / std::sqrt (len);
 					vertices[p][i]->nx *= recip;
 					vertices[p][i]->ny *= recip;
 					vertices[p][i]->nz *= recip;
@@ -1796,7 +1796,7 @@ void display()
 
 	model = mat4(1.0f);	
 	mat4 projection = perspective(75.0f,1.0f,0.1f,1000.0f); 
-	view = lookAt(vec3(0, 20, 350.0),vec3(Xcam,Ycam,Zcam),vec3(0.0, -1.0, 0.0)); 
+	view = lookAt(vec3(-30.0, 40.0, 95.0),vec3(Xcam,Ycam,Zcam),vec3(0.0, 1.0, 0.0));  
 
 	model =rotate(model, x_angle, vec3(0.0f, 1.0f, 0.0f));   
 	model = rotate(model, y_angle, vec3(1.0f, 0.0f, 0.0f));   
