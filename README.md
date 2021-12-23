@@ -1,4 +1,4 @@
 # Real Time Rendering with OpenGL Shaders.
-Codes for OSU CSE Course CSE 5542, Real TIme Rendering. This repository contains OpenGL shader codes for advanced rendering.
+This repository contains OpenGL shader codes for advanced rendering techniques.
 
 ![plot](./img/rtrendering.png)
